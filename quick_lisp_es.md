@@ -131,12 +131,11 @@ Devolverá el ELEMENTO de una SECUENCIA que este en la posición del índice, em
 # FUNCION DE ASIGNACION 
 
 # SETQ
-;; La función SETQ asigna un valor a una variable. 
-;; Su sintaxis es: (SETQ {VAR FORM}+).
-;; La Q de SETQ es un mnemotécnico de la función Quote. Las llaves y el signo mas, representan repetición del par VAR FORM.
-;; (SETQ VAR FORM VAR FORM VAR FORM ...)
-;; DEBE haber un número par de argumentos. Los argumentos impares de la función no son evaluados.
-(setq x 4 y 6 z 9) ; ==> 9
+La función SETQ asigna un valor a una variable.
+Su sintaxis es: (SETQ {VAR FORM}+).
+; La Q de SETQ es un mnemotécnico de la función Quote. Las llaves y el signo mas, representan repetición del par VAR FORM.
+; DEBE haber un número par de argumentos. Los argumentos impares de la función no son evaluados.
+`(setq x 4 y 6 z 9) ; ==> 9
 
 ; Esto asigna 4 a x, 6 a y, 9 a z. Siempre las evaluaciones de expresiones, devuelven el resultado de la ultima evaluación. En este caso, la ultima evaluación fue z 9.
 
