@@ -131,44 +131,40 @@ Devolverá el ELEMENTO de una SECUENCIA que este en la posición del índice, em
 # FUNCION DE ASIGNACION 
 
 # SETQ
-La función SETQ asigna un valor a una variable.
-Su sintaxis es: (SETQ {VAR FORM}+).
-; La Q de SETQ es un mnemotécnico de la función Quote. Las llaves y el signo mas, representan repetición del par VAR FORM.
-; DEBE haber un número par de argumentos. Los argumentos impares de la función no son evaluados.
-`(setq x 4 y 6 z 9) ; ==> 9
+`(setq x 4 y 6 z 9) `; ==> 9
+`(SETQ {VAR FORM}+)` la función SETQ asigna un valor a una variable.\
+La Q de SETQ es un mnemotécnico de la función Quote. Las llaves y el signo mas, representan repetición del par VAR FORM. \
+DEBE haber un número par de argumentos. Los argumentos impares de la función no son evaluados. Devuelve el resultado de la ultima evaluacion pero las variables quedan instanciadas. \
 
-; Esto asigna 4 a x, 6 a y, 9 a z. Siempre las evaluaciones de expresiones, devuelven el resultado de la ultima evaluación. En este caso, la ultima evaluación fue z 9.
+Las evaluaciones de las formas y las asignaciones (primero se evalúa y luego se asigna), se realizan secuencialmente.
 
-; * Las evaluaciones de las formas y las asignaciones (primero se evalúa y luego se asigna), se realizan secuencialmente.
-(SETQ X 5) ; ==> 5
-(SETQ NOMBRE "MARIA") ; ==> "MARIA"
-(SETQ FRUTA (CAR '(MANZANA PERA ))) ; ==> MANZANA
-(SETQ LISTA1 '(A B C)) ; ==> (A B C)
-(SETQ X 5 Y 6 Z 7 ; ==> 7
-(SETQ X 5 Y 6 Z) ; ==>  Error: too few arguments
+- `(SETQ X 5) `; ==> 5
+- `(SETQ NOMBRE "MARIA") `; ==> "MARIA"
+- `(SETQ FRUTA (CAR '(MANZANA PERA ))) `; ==> MANZANA
+- `(SETQ LISTA1 '(A B C)) `; ==> (A B C)
+- `(SETQ X 5 Y 6 Z 7) `; ==> 7
+- `(SETQ X 5 Y 6 Z) `; ==>  Error: too few arguments
 
 
-;; #########################################
 # FUNCIONES DE CONSTRUCCION DE LISTAS
-;; Las funciones con las que Lisp permite construir listas son
-;; * CONS
-;; * LIST
-;; * APPEND.
+Las funciones con las que Lisp permite construir listas son: CONS, LIST, APPEND.
+
+# CONS
+ las listas en Common Lisp están compuestas de "conses", a veces llamados celdas cons o pares o "estructura cons". Una celda cons es una estructura de datos con dos slots, llamados sus car y cdr. Una lista es bien formada una cadena enlazada de celdas cons. Cada car del cons refiere a un miembro de la lista (posiblemente otra lista). Cada cdr del cons refiere al cons siguiente -- a excepción del último cons, cuyo cdr refiere al valor nil. Nil también representa una lista vacía. Los conses también pueden fácilmente usarse para implementar árboles y otras estructuras de datos complejas; aunque generalmente es aconsejado usar instancias de clases y estructuras. También es posible crear estructuras de datos circulares con los conses.
 
 # CONS - construct
-;; La función CONS, crea una nueva estructura cons. Sintácticamente podemos expresarlos como:
-;; (CONS SEXP SEXP)
-;; donde SEXP son expresiones simbólicas, pueden ser átomos o listas.
-;; El CAR de la nueva lista será la primera SEXP y el CDR la segunda.
-(CONS 'A '(B C D) ) ; ==> (A B C D)
-(CONS '(X Y) '(B C D) ) ; ==> ((X Y) B C D)
-(CONS '((X Y) (W Z)) '((A B)) ) ; ==> ( ((X Y) (W Z)) (A B))
-(CONS 'A NIL ) ; ==> (A)
-(CONS NIL '(A) ) ; ==> (NIL A)
+La función CONS, crea una NUEVA ESTRUCTURA CONS. Sintácticamente podemos expresarlos como: `(CONS SEXP SEXP)`\
+donde SEXP son expresiones simbólicas, pueden ser átomos o listas. El CAR de la nueva lista será la primera SEXP y el CDR la segunda.
 
-; * Obsérvese que si la segunda SEXP corresponde con un átomo entonces se creará una lista punteada ("impropia").
-(CONS 'A 'B ) ; ==> (A . B)
-(CONS '(A B) 'C ) ; ==> ((A B) . C)
+- `(CONS 'A '(B C D) ) `; ==> (A B C D)
+- `(CONS '(X Y) '(B C D) ) `; ==> ((X Y) B C D)
+- `(CONS '((X Y) (W Z)) '((A B)) ) `; ==> ( ((X Y) (W Z)) (A B))
+- `(CONS 'A NIL ) `; ==> (A)
+- `(CONS NIL '(A) ) `; ==> (NIL A)
+
+- Obsérvese que si la segunda SEXP corresponde con un átomo entonces se creará una lista punteada ("impropia").
+  - `(CONS 'A 'B ) `; ==> (A . B)
+  - `(CONS '(A B) 'C ) `; ==> ((A B) . C)
   
 # LIST
 ;; LIST &REST ARGS

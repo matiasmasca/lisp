@@ -1,18 +1,22 @@
-
-https://sublimerepl.readthedocs.io/en/latest/
+# SublimeREPL
+Accede a la documentación de la herramienta en
+[click here](https://sublimerepl.readthedocs.io/en/latest/)
 
 # To open a repl:
 - ctrl + shift + p
 - escribir: repl lisp
 
-# Para evaluar una linea en el repl
+# Como evaluar una linea en el repl
 ctrl + ,, soltar l
 
-# ctrl + shift + ,, (soltar todas las teclas) presionar: (L minuscula) l
+# Como enviar una linea al repl
+ctrl + shift + ,, (soltar todas las teclas) presionar: (L minuscula) l
 control mas shift comma comma, solar y presionar L
 
+
 # Key binding
-para enviar el archivo fuente a lisp
+editar la configuración de sublime y agregar esta config.
+servira para enviar el archivo fuente a lisp presiando: alt+ctrl+h
 
 [
 	{
